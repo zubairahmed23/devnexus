@@ -14,7 +14,7 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 
 try{
-    app.listen(process.env.PORT, process.env.HOSTNAME);
+    app.listen();
     console.log(`Started server at ${process.env.PROTOCOL}://${process.env.HOSTNAME}:${process.env.PORT}`);
 }catch(err){
     console.error(err);   
