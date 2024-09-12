@@ -36,7 +36,7 @@ app.get("/", async (req, res) => {
     if(req.session.isLoggedIn && req.session.user){
         try{
             const client = await mongo.connect(url);
-            const db = client.db("devnexus");
+            const db = client.db("test");
             var posts = await db.collection("posts").find();
             for await (const doc of posts){
                 post.unshift(doc);
@@ -62,7 +62,7 @@ app.post("/auth/login", async (req, res) => {
 
     try{
         const client = await mongo.connect(url);
-        const db = client.db("devnexus");
+        const db = client.db("test");
         const user = await db.collection("users").findOne({email:email, password:password});
 
         if(user){
@@ -86,11 +86,11 @@ app.post("/auth/signup", async (req, res) => {
     let email = req.body.email;
     let password = req.body.password;
     
-    let uid = `${fname.replace(" ", "")}${lname.replace(" ", "")}${Math.floor(Math.random()*99999)}@devnexus`;
+    let uid = `${fname.replace(" ", "")}${lname.replace(" ", "")}${Math.floor(Math.random()*99999)}@test`;
 
     try{
         const client = await mongo.connect(url);
-        const db = client.db("devnexus");
+        const db = client.db("test");
 
         let user = {
             uid:uid,
@@ -154,7 +154,7 @@ app.post("/posts/create/:uid", async (req, res) => {
 
     try{
         const client = await mongo.connect(url);
-        const db = client.db("devnexus");
+        const db = client.db("test");
         const add_post = await db.collection("posts").insertOne(post);
         res.status(200).redirect("/");
     }catch(err){
@@ -168,7 +168,7 @@ app.get("/posts/create_like/:_id", async (req, res) => {
 
     try {
         const client = await mongo.connect(url);
-        const db = client.db("devnexus");
+        const db = client.db("test");
 
         const post = await db.collection("posts").findOne({ _id: post_id });
 
