@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Nexus - CREATE POST</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-dark">
+    <div class="container p-2 mt-3 d-flex flex-column gap-2 bg-light justify-content-center rounded">
+        <text class="text text-md text-dark text-center">CREATE POST</text>
+        <form class="form text-center" action="/posts/create/<%= session.user.uid %>" method="post">
+            <div class="form-floating mb-3">
+                <input class="form-control" id="title" name="title" required autocomplete="on" type="text">
+                <label for="title">TITLE</label>  
+            </div>
+            <div class="form-floating mb-3">
+                <textarea class="form-control" id="content" name="content" required autocomplete="on" type="text" maxlength="1000"></textarea>
+                <label for="content">CONTENT</label>  
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success" type="submit">CREATE POST</button>
+                <button class="btn btn-danger" type="reset">RESET</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

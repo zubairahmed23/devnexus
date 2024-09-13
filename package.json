@@ -1,0 +1,23 @@
+{
+  "name": "devnexus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev":"nodemon ./server.js",
+    "start":"node ./server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.20.0",
+    "express-session": "^1.18.0",
+    "mongodb": "^6.8.1",
+    "path": "^0.12.7",
+    "socket.io": "^4.7.5"
+  }
+}
